@@ -12,10 +12,10 @@ clean:
 	rm -f vocab.txt prep-title.txt title.txt all.tsv
 
 all.tsv: $(FNAME)
-	python makecsv.py
+	python3 makecsv.py
 
 title.txt: all.tsv
 	cut -f 4- all.tsv | nkf -w -Lu -Z0 | mecab -Owakati > title.txt
 
 vocab.txt prep-title.txt: title.txt
-	python wmt_preprocess.py --vocab-file vocab.txt title.txt prep-title.txt
+	python3 wmt_preprocess.py --vocab-file vocab.txt title.txt prep-title.txt
