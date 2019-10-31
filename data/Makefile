@@ -1,10 +1,10 @@
 #
 
 FNAME=ldcc-20140209.tar.gz
-URL="https://drive.google.com/uc?export=download&id=1b-llzNQdmKIp0FYMwzGOKmXdQUNpNXC8"
+#URL="https://drive.google.com/uc?export=download&id=1b-llzNQdmKIp0FYMwzGOKmXdQUNpNXC8"
 
-$(FNAME):
-	wget -O $(FNAME) $(URL)
+#$(FNAME):
+# 	wget -O $(FNAME) $(URL)
 
 all: vocab.txt prep-title.txt
 

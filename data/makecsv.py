@@ -1,14 +1,14 @@
 import tarfile
 import csv
 import re
+from tqdm import tqdm
 
-target_genre = ["it-life-hack", "kaden-channel", "dokujo-tsushin", "topic-news", \
-    "livedoor-homme", "movie-enter", "peachy" "smax", "sports-watch"]
+target_genre = ["sentiment.train.0", "sentiment.train.1"]
 
 zero_fnames = []
 one_fnames = []
 tsv_fname = "all.tsv"
-tgz_fname = "ldcc-20140209.tar.gz"
+tgz_fname = "data.tar.gz"
 
 brackets_tail = re.compile('【[^】]*】$')
 brackets_head = re.compile('^【[^】]*】')
@@ -28,7 +28,7 @@ def read_title(f):
 
 with tarfile.open(tgz_fname) as tf:
     # 対象ファイルの選定
-    for ti in tf:
+    for ti in tqdm(tf):
         # ライセンスファイルはスキップ
         if "LICENSE.txt" in ti.name:
             continue
@@ -39,13 +39,13 @@ with tarfile.open(tgz_fname) as tf:
     with open(tsv_fname, "w") as wf:
         writer = csv.writer(wf, delimiter='\t')
         # ラベル 0
-        for name in zero_fnames:
+        for name in tqdm(zero_fnames):
             f = tf.extractfile(name)
             title = read_title(f)
             row = [target_genre[0], 0, '', title]
             writer.writerow(row)
         # ラベル 1
-        for name in one_fnames:
+        for name in tqdm(one_fnames):
             f = tf.extractfile(name)
             title = read_title(f)
             row = [target_genre[1], 1, '', title]

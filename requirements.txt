@@ -1,3 +1,4 @@
 chainer
 progressbar2
-cupy-cuda100 # maybe different for different versions of cuda
+cupy-cuda101 # maybe different for different versions of cuda
+tqdm

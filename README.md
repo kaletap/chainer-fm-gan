@@ -22,6 +22,14 @@ Just type the following:
 cd data && make all
 ```
 
+#### Preparing custom datasets:
+Steps to do in order to prepare new, custom datasets:
+1. Prepare a folder named `text`
+2. Create subfolders containing text files with different styles
+3. In each subfolder create seperate file for text data. In first two
+   lines and the last one put placeholders (because of the way
+   `makecsv.py` script works.
+
 ### Train
 
 ```
