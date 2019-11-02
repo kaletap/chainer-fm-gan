@@ -1,6 +1,6 @@
 #
 
-FNAME=ldcc-20140209.tar.gz
+FNAME=data.tar.gz
 #URL="https://drive.google.com/uc?export=download&id=1b-llzNQdmKIp0FYMwzGOKmXdQUNpNXC8"
 
 #$(FNAME):
